@@ -20,10 +20,12 @@ function displayAvengersInfo (){
             var avengersDiv = $("<div>");
             var p = $("<p>").html(results[i].rating);
             var avengersImage = $("<img>");
-            avengersImage.attr("src", results[i].images.fixed_height.url);
-            avengersDiv.append(p);
+            avengersImage.attr("src", results[i].images.fixed_height.url), "data-animate";
+            avengersImage.attr("src", results[i].images.fixed_height_still.url, "data-still")
+            avengersImage.addClass("gif")
+            avengersDiv.append("rating" , p);
             avengersDiv.append(avengersImage);
-            $("avengers-view").prepend(avengersDiv);
+            $("#avengers-view").prepend(avengersDiv);
         }
     })
 }
@@ -43,7 +45,6 @@ function renderButtons (){
     }
 }
 
-
 $("#add-avenger").on("click", function(event) {
     event.preventDefault();
     var avengerSearch = $("#avengers-input").val().trim()
@@ -51,6 +52,20 @@ $("#add-avenger").on("click", function(event) {
     renderButtons()
     $("#avengers-input").val("")
 })
+
+$(".gif").on("click", function() {
+var state = $(this).attr("data-state")
+      console.log(state)
+
+      if(state==="still"){
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate")
+      }
+      else{
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still")
+      }
+    })
 
 renderButtons()
 $(document).on("click", ".avengers-btn", displayAvengersInfo);
