@@ -21,7 +21,7 @@ function displayAvengersInfo (){
             var p = $("<p>").html(results[i].rating);
             var avengersImage = $("<img>");
             //add logic if, else
-            avengersImage.attr("src", results[i].images.fixed_height_still.url, "data-still");
+            avengersImage.attr("src", results[i].images.fixed_height.url, "data-still");
             avengersImage.attr("data-animate", results[i].images.fixed_height.url, "data-animate");
             avengersImage.attr("data-still", results[i].images.fixed_height_still.url, "data-still");
             avengersImage.addClass("gif");
