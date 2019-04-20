@@ -20,9 +20,11 @@ function displayAvengersInfo (){
             var avengersDiv = $("<div>");
             var p = $("<p>").html(results[i].rating);
             var avengersImage = $("<img>");
-            avengersImage.attr("src", results[i].images.fixed_height.url), "data-animate";
-            avengersImage.attr("src", results[i].images.fixed_height_still.url, "data-still")
-            avengersImage.addClass("gif")
+            //add logic if, else
+            avengersImage.attr("src", results[i].images.fixed_height_still.url, "data-still");
+            avengersImage.attr("data-animate", results[i].images.fixed_height.url, "data-animate");
+            avengersImage.attr("data-still", results[i].images.fixed_height_still.url, "data-still");
+            avengersImage.addClass("gif");
             avengersDiv.append("rating" , p);
             avengersDiv.append(avengersImage);
             $("#avengers-view").prepend(avengersDiv);
@@ -53,7 +55,7 @@ $("#add-avenger").on("click", function(event) {
     $("#avengers-input").val("")
 })
 
-$(".gif").on("click", function() {
+$("#avengers-view").on("click", ".gif" , function() {
 var state = $(this).attr("data-state")
       console.log(state)
 
