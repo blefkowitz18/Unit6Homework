@@ -1,0 +1,16 @@
+.buttons {
+    text-align: center !important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.background{
+    background-color: blue;
+    color: white;
+    text-size-adjust: 24px;
+}
+
+button:hover{
+    background-color: white !important;
+    color: blue !important;
+}
