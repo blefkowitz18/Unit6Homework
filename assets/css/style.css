@@ -10,11 +10,17 @@
     font-size: 24px;
 }
 
-button:hover{
-    background-color: white !important;
-    color: blue !important;
-}
+
 
 .gifView {
     margin-top: 10px;
+}
+
+#add-avenger {
+    text-decoration: none;
+}
+
+#add-avenger:hover{
+    background: white;
+    color: blue;
 }
